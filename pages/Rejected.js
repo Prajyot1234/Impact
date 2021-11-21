@@ -1,0 +1,37 @@
+import React from 'react'
+import { useEffect,useState } from 'react'
+import s from "../styles/shortlisted.module.css"
+import db from "../config/firebase"
+
+function Rejected() {
+
+    const [ data, setdata ] = useState([]);
+    useEffect(() => {
+        db.collection("reject").onSnapshot(snapshot =>setdata((snapshot.docs.map(doc => doc.data()))))
+    }, [])
+
+    const ShowUserData = (data) => {
+        return(
+            <div className={s.SliderContainer}>
+              <img src={data.Image}/>
+              <h1>{data.name}</h1>
+              <div className={s.wrap}>
+                <button>Check Profile</button>
+              </div>  
+            </div>
+        )
+      }
+
+    return (
+        <div className={s.Container}>
+            <h1>Reject</h1>
+            <div className={s.SContainer}>
+            {   
+                data?.map(ShowUserData)
+            }
+            </div>
+        </div>
+    )
+}
+
+export default Rejected
