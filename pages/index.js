@@ -5,7 +5,6 @@ import Link from "next/link"
 
 export default function Home(data) {
 
-  console.log(useDataLayerValue);
   // const [ dispatch ] = useDataLayerValue();
   const [ user, setuser ] = useState(undefined);
   
