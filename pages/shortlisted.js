@@ -3,13 +3,11 @@ import { useEffect,useState } from 'react'
 import s from "../styles/shortlisted.module.css"
 import db from "../config/firebase"
 
-function sortlisted() {
+function Shortlisted() {
 
     const [ data, setdata ] = useState([]);
     useEffect(() => {
-        db.collection("select").onSnapshot(snapshot =>setdata((snapshot.docs.map(doc => doc.data()))))
-        //setdata(console.log(db.collection("select").onSnapshot(snapshot =>(snapshot.docs.map(doc => doc.data())))))
-        console.log(data);
+        db.collection("select").onSnapshot(snapshot =>setdata((snapshot.docs.map(doc => doc.data()))));
     }, [])
 
     const ShowUserData = (data) => {
@@ -36,4 +34,4 @@ function sortlisted() {
     )
 }
 
-export default sortlisted
+export default Shortlisted

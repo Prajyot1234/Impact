@@ -1,12 +1,10 @@
 import { useEffect,useState  } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import {  useDataLayerValue } from '../config/Datalayer'
 import Link from "next/link"
 
 export default function Home(data) {
 
-  console.log(useDataLayerValue);
   // const [ dispatch ] = useDataLayerValue();
   const [ user, setuser ] = useState(undefined);
   
